@@ -1,5 +1,3 @@
-
-
 <form action = "/question" method = "post">
   <input type = "text" name = "question"></input>
   <input type = "submit"></input>
@@ -9,7 +7,9 @@
 <!--シンプルモーダル-->
 <a href="#inline" class="inline">ボタン</a>
 <div id="inline" style="display:none;">
- テキストが入ります。
+  <form action = "/memoFromAPI">
+    <textarea rows="4" cols="50" name="content"><%= @answer %></textarea>
+  </form>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

@@ -28,9 +28,11 @@ post "/question" do
         messages: [{ role: "user", content: params[:question] }], # Required.
         temperature: 0.7,
     })
-    res_dig = response.dig("choices", 0, "message", "content")
+    resDig = response.dig("choices", 0, "message", "content")
+    resAddBr = resDig.gsub(/\n/, "<br>") 
+    result= resAddBr.strip
     
-    session[:result] = res_dig
+    session[:result] = result
     
     redirect "/"
 end
