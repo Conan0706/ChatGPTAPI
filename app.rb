@@ -29,8 +29,7 @@ post "/question" do
         temperature: 0.7,
     })
     resDig = response.dig("choices", 0, "message", "content")
-    resAddBr = resDig.gsub(/\n/, "<br>") 
-    result= resAddBr.strip
+    result = resDig.gsub(/\。/, "。<br>") 
     
     session[:result] = result
     

@@ -3,12 +3,12 @@
   <input type = "submit"></input>
 </form>
 
-<%= @answer %>
+<p><%= @answer %></p>
 <!--シンプルモーダル-->
 <a href="#inline" class="inline">ボタン</a>
 <div id="inline" style="display:none;">
   <form action = "/memoFromAPI">
-    <textarea rows="4" cols="50" name="content"><%= @answer %></textarea>
+    <textarea rows="4" cols="50" name="content"><%= @answer.gsub("<br>", "\n") %></textarea>
   </form>
 </div>
 
