@@ -13,8 +13,12 @@ Dotenv.load
 enable :sessions
 
 get '/' do
-    
     @answer = session[:result]
+    
+    if !Memo.nil?
+        puts "hoge"
+        @memos = Memo.all
+    end
   erb :index
 end
 
@@ -34,6 +38,14 @@ post "/question" do
     session[:result] = result
     
     redirect "/"
+end
+
+post "/memoFromAPI" do
+   Memo.create(
+       title: params[:title],
+       body: params[:content]
+       ) 
+      redirect "/"
 end
 
 

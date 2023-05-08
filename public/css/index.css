@@ -11,3 +11,33 @@ textarea {
 textarea:focus {
   height: 450px; /* フォーカスされたときに高さを450pxに設定 */
 }
+
+.card-wrapper{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 0 40px;
+}
+
+.card {
+  display: flex;
+  width: 300px;
+  height: 400px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card-content {
+  padding: 20px;
+  flex: 1;
+}
+
+
+
+
+
+
+
+

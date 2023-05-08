@@ -3,14 +3,36 @@
   <input type = "submit"></input>
 </form>
 
-<p><%= @answer %></p>
+<p>メモ</p>
+<% if !@memos.nil? %>
+  <div class="card-wrapper">
+  <% @memos.each do |memo| %>
+    <div class="card">
+      <div class="card-content">
+        <p><%= memo.title %></p>
+      </div>
+    </div>
+  <% end %>
+  </div>
+<% end %>
+
+<p>API</p>
+<% if !@answer.nil? %>
+  <p><%= @answer %></p>
+<% end %>
 <!--シンプルモーダル-->
 <a href="#inline" class="inline">ボタン</a>
 <div id="inline" style="display:none;">
-  <form action = "/memoFromAPI">
+  <form action = "/memoFromAPI" method="post">
+    <input type="text" name="title"></input>
     <div style="overflow: auto;">
-      <textarea rows="4" cols="50" name="content"><%= @answer.gsub("<br>", "\n") %></textarea>
+      <textarea rows="4" cols="50" name="content">
+        <% if !@answer.nil? %>
+          <%= @answer.gsub("<br>", "\n") %>
+        <% end %>
+      </textarea>
     </div>
+    <input type="submit" placeholder="送信"></input>
   </form>
 </div>
 
